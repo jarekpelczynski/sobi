@@ -1,0 +1,21 @@
+@mixin media($min-query: null, $max-query: null) {
+  @if $max-query == null {
+    @media screen and (min-width: $min-query+0px) { @content; }
+  }
+
+  @else if $min-query == null {
+    @media screen and (max-width: $max-query+0px) { @content; }
+  }
+
+  @else {
+    @media screen and (min-width: $min-query+0px) and (max-width: $max-query+0px) { @content; }
+  }
+}
+
+@mixin media-above($min-query) {
+  @include media($min-query, null) { @content; }
+}
+
+@mixin media-below($max-query) {
+  @include media(null, $max-query - 1) { @content; }
+}
