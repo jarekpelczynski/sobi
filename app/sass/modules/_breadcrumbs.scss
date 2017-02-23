@@ -68,6 +68,11 @@
     padding: 0 40px 0 14px;
     line-height: 64px;
 
+    @include media-below($break-medium) {
+      height: 48px;
+      line-height: 48px;
+    }
+
     &:after {
       @extend %arrow_right;
     }
@@ -128,15 +133,6 @@
   select {
     position: relative;
     width: 20px;
-    appearance: none;
-    background-color: transparent;
-    border: none;
-    color: #fff;
-    text-align: center;
-    text-align-last: center;
-
-    option {
-      text-align: left;
-    }
+    @extend %naked_select;
   }
 }

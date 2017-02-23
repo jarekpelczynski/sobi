@@ -79,6 +79,30 @@
 
 .header--links {
   float: right;
+  @include media-below($break-large) {
+    display: none;
+  }
+}
+
+.mobile--links {
+  float: right;
+
+  @include media-above($break-large) {
+    display: none;
+  }
+
+  img {
+    width: 18px;
+    margin: -7px 0;
+    padding: 7px;
+    background-color: $color-primary-darken;
+    box-shadow: inset 1px 0 1px -1px rgba(0,0,0,.2), inset -1px 0 1px -1px rgba(255,255,255,.8);
+    cursor: pointer;
+  }
+
+  select {
+    display: none;
+  }
 }
 
 
@@ -97,12 +121,20 @@
   .ui-breadcrumbs {
     height: 64px;
     float: left;
+
+    @include media-below($break-medium) {
+      height: 48px;
+    }
   }
 }
 
 .header--profile {
   height: 64px;
   float: right;
+
+  @include media-below($break-medium) {
+    height: 48px;
+  }
 
   ul {
     @extend %clean_list;
@@ -111,6 +143,10 @@
   li {
     display: inline-block;
     height: 64px;
+
+    @include media-below($break-medium) {
+      height: 48px;
+    }
   }
 
   a {
@@ -119,6 +155,10 @@
     color: #fff;
     text-decoration: none;
     line-height: 64px;
+
+    @include media-below($break-medium) {
+      line-height: 48px;
+    }
   }
 
   .user-profile {
@@ -135,6 +175,10 @@
 
       @include media-below($break-large) {
         width: 32px;
+      }
+
+      @include media-below($break-medium) {
+        width: 24px;
       }
     }
 
@@ -157,6 +201,10 @@
     border-left: 1px solid #545454;
     background-color: #292929;
     text-align: center;
+
+    @include media-below($break-medium) {
+      width: 48px;
+    }
   }
 }
 
