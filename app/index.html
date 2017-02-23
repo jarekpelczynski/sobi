@@ -20,11 +20,9 @@
       </div> <!-- End of .header--primary -->
 
       <div class="header--secondary">
-          <nav id="main-breadcrumbs" class="ui-breadcrumbs ui-breadcrumbs--primary">
+          <nav id="primary-breadcrumbs" class="ui-breadcrumbs ui-breadcrumbs--primary">
             <ul>
-              <li><a href="">Dashboard</a></li>
-              <li><a href="">Network 1</a></li>
-              <li class="current"><a href="">Kiosk 1</a></li>
+              <li><a href="#dashboard">Dashboard</a></li>
               <li class="mobile">
                 <a href="#" class="show_mobile_options">...</a>
                 <select id="mobile-breadcrumbs" class="hidden">
@@ -34,7 +32,9 @@
                   <option value="#settings1">Settings 1</option>
                 </select>
               </li>
-              <li class="active"><a href="">Settings</a></li>
+              <li><a href="#network1">Network 1</a></li>
+              <li class="current"><a href="#kiosk1">Kiosk 1</a></li>
+              <li class="active"><a href="#settings">Settings</a></li>
             </ul>
           </nav>
           <div class="header--profile">
@@ -55,17 +55,19 @@
       <div class="header--tertiary">
         <nav class="ui-breadcrumbs ui-breadcrumbs--secondary">
           <ul>
-            <li><a href="#">Setting 1</a></li>
-            <li><a href="#">Setting 2</a></li>
-            <li class="current"><a href="#">Setting 3</a></li>
-            <li><a href="#">Setting 4</a></li>
+            <li><a href="#setting1">Setting 1</a></li>
+            <li><a href="#setting2">Setting 2</a></li>
+            <li class="current"><a href="#setting3">Setting 3</a></li>
+            <li><a href="#setting4">Setting 4</a></li>
           </ul>
         </nav>
       </div>
 
     </header>
-    <section class="section section--body">
-
+    <section id="dashboard" class="section section--body">
+      <h2>Dashboard</h2>
+      <button data-target="network1">Network 1</button>
+      <button data-target="network2">Network 2</button>
     </section>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>

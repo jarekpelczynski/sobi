@@ -17,6 +17,7 @@
   font-size: 0.75em;
   @extend %clearfix;
 
+
   .ui-btn {
     display: inline-block;
     padding: 4px 10px;
@@ -27,6 +28,10 @@
     color: #fff;
     font-size: .56em;
     font-weight: bold;
+
+    @include media-below($break-medium) {
+      display: none;
+    }
   }
 
   .ui-switcher {
@@ -81,6 +86,10 @@
   border-bottom: 1px solid #545454;
   background-color: $color-gray;
 
+  @include media-below($break-large) {
+    font-size: 80%;
+  }
+
   .inner {
     @extend %clearfix;
   }
@@ -123,6 +132,10 @@
       margin-right: 10px;
       border-radius: 20px;
       box-shadow: 3px 3px 6px rgba(0,0,0,.9);
+
+      @include media-below($break-large) {
+        width: 32px;
+      }
     }
 
     img, span {
@@ -133,6 +146,10 @@
   .icon {
     width: 24px;
     vertical-align: middle;
+
+    @include media-below($break-large) {
+      width: 18px;
+    }
   }
 
   .user-settings {
@@ -146,5 +163,7 @@
 .header--tertiary {
   background-color: $color-black;
 
-
+  @include media-below($break-large) {
+    font-size: 80%;
+  }
 }
