@@ -52,13 +52,7 @@
       </div> <!-- End of .header--secondary -->
 
       <div class="header--tertiary">
-        <nav class="ui-breadcrumbs ui-breadcrumbs--secondary">
-          <ul>
-            <li><a href="#setting1">Setting 1</a></li>
-            <li><a href="#setting2">Setting 2</a></li>
-            <li class="current"><a href="#setting3">Setting 3</a></li>
-            <li><a href="#setting4">Setting 4</a></li>
-          </ul>
+        <nav id="secodary-breadcrumbs" class="ui-breadcrumbs ui-breadcrumbs--secondary">
         </nav>
       </div>
 
@@ -73,20 +67,34 @@
       <h2>Network 1</h2>
       <button data-path="/dashboard/network1/kiosk1">Kiosk 1</button>
       <button data-path="/dashboard/network1/kiosk2">Kiosk 2</button>
-      <button data-path="/dashboard/network1/settings">Network settings</button>
+      <button data-path="/dashboard/network1/settings,setting1">Network settings</button>
+    </section>
+
+    <section data-target="dashboard_network1_settings" data-nav="setting1,setting2,setting3,setting4" class="section section--body hidden">
+      <h2>Setting 1</h2>
+      <button data-path="/dashboard/network1/settings,setting2">Setting 2</button>
+      <button data-path="/dashboard/network1/settings,setting3">Setting 3</button>
+      <button data-path="/dashboard/network1/settings,setting4">Setting 4</button>
     </section>
 
     <section data-target="dashboard_network2" class="section section--body hidden">
-      <h2>Setting 1</h2>
-      <button data-path="/dashboard/network1/settings2">Setting 2</button>
-      <button data-path="/dashboard/network1/settings3">Setting 3</button>
-      <button data-path="/dashboard/network1/settings4">Setting 4</button>
+      <h2>Network 2</h2>
     </section>
 
     <section data-target="dashboard_network1_kiosk1" class="section section--body hidden">
       <h2>Kiosk 1</h2>
-      <button data-path="/dashboard/network1/kiosk1/settings1">Setting 1</button>
-      <button data-path="/dashboard/network1/kiosk1/settings2">Setting 2</button>
+      <button data-path="/dashboard/network1/kiosk1/settings,setting1" data-dir="">Setting 1</button>
+      <button data-path="/dashboard/network1/kiosk1/settings,setting2">Setting 2</button>
+    </section>
+
+    <section data-target="dashboard_network1_kiosk2" class="section section--body hidden">
+      <h2>Kiosk 2</h2>
+    </section>
+
+    <section data-target="dashboard_network1_kiosk1_settings" data-nav="setting1,setting2,setting3,setting4" class="section section--body hidden">
+      <h2>Settings ...</h2>
+      <button data-path="/dashboard/network1/kiosk1/settings,setting1">Setting 1</button>
+      <button data-path="/dashboard/network1/kiosk1/settings,setting2">Setting 2</button>
     </section>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>

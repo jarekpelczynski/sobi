@@ -97,7 +97,9 @@
 }
 
 .ui-breadcrumbs--secondary {
-  padding: 13px 0;
+  ul {
+    padding: 13px 0;
+  }
 
   li {
     padding: 0 16px;
@@ -111,7 +113,6 @@
 
   a {
     padding: 7px 0;
-    color: #fff;
   }
 }
 
