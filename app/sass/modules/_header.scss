@@ -75,6 +75,12 @@
     margin-right: 14px;
     margin-left: $canvas_padding;
   }
+
+  @include media-below($break-medium) {
+    .ui-switcher {
+      display: none;
+    }
+  }
 }
 
 .header--links {
@@ -164,6 +170,10 @@
   .user-profile {
     text-transform: none;
     padding: 0 12px;
+
+    @include media-below($break-medium) {
+      display: none;
+    }
 
     img {
       width: 40px;
