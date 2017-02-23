@@ -128,25 +128,29 @@
   };
 
   Breadcrumbs.prototype.updateBreadcrumbs = function() {
-    var html = [];
+    var list, select;
+
+    list   = [];
+    select = [];
     that.breadcrumbsHTML = [];
 
     that.clearBreadcrumbs();
 
+    select.push($('<option>', { text: '...' }));
     for (var index in that.primaryPath) {
-      html.push(that.createBreadcrumbsItem(that.primaryPath[index], index));
+      list.push(that.createBreadcrumbsItem(that.primaryPath[index], index));
+      select.push(that.createMobileBreadcrumbs(that.primaryPath[index], index));
     }
 
-    that.containers.primary.html(html);
+    that.containers.primary.html(list);
+    that.updateMobileBreadcrumbs(select);
   };
 
   Breadcrumbs.prototype.createBreadcrumbsItem = function(item, index) {
     var $node, $link, path, classes, temp;
 
     classes = [];
-    temp  = that.primaryPath;
-    index = parseInt(index, 10) + 1;
-    path  = '/' + temp.slice(0, index).join("/");
+    path    = that.createPath(item, index);
 
     if (that.currentView === item) {
       classes.push('current');
@@ -164,8 +168,41 @@
     return $node;
   };
 
+  Breadcrumbs.prototype.createMobileBreadcrumbs = function(item, index) {
+    var $option, path;
+
+    path    = that.createPath(item, index);
+    $option = $('<option>', { 'data-path': path, text: item});
+
+    return $option;
+  };
+
+  Breadcrumbs.prototype.updateMobileBreadcrumbs = function(elements) {
+    var $li, $span, $select;
+
+    $li     = $('<li />' , { class: 'mobile' });
+    $span   = $('<span />', { class: 'mobile-breadcrumbs' });
+    $select = $('<select />', { id: 'mobile-breadcrumbs-select' });
+
+    $select.append(elements);
+    $span.append($select);
+    $li.append($span);
+
+    that.containers.primary.find('li:first').after($li);
+  };
+
+  Breadcrumbs.prototype.createPath = function(item, index) {
+    var temp, index, path;
+
+    temp  = that.primaryPath;
+    index = parseInt(index, 10) + 1;
+    path  = '/' + temp.slice(0, index).join("/");
+
+    return path;
+  };
+
   Breadcrumbs.prototype.clearBreadcrumbs = function() {
-    that.containers.primary.find('li:not(.mobile)').remove();
+    that.containers.primary.find('li').remove();
   };
 
   Breadcrumbs.prototype.clearAdditionalNav = function() {
