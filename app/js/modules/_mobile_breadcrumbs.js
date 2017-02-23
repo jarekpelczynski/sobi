@@ -11,4 +11,4 @@
   $mobileBreadcrumbsTrigger.on('change' , function () {
     window.location.href = this.value;
   });
-})();
+}(jQuery));
