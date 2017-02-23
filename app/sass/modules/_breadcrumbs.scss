@@ -89,7 +89,7 @@
         display: inline-block;
       }
     }
-  }  
+  }
 }
 
 .ui-breadcrumbs--secondary {
@@ -97,10 +97,11 @@
 
   li {
     padding: 0 16px;
-    border-right: 1px solid #464646;
+    border-left: 1px solid #464646;
 
-    &:last-child {
+    &:first-child {
       border: none;
+      padding-left: 0;
     }
   }
 
