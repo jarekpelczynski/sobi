@@ -22,8 +22,8 @@
       <div class="header--secondary">
           <nav id="primary-breadcrumbs" class="ui-breadcrumbs ui-breadcrumbs--primary">
             <ul>
-              <li><a href="#dashboard">Dashboard</a></li>
-              <li class="mobile">
+              <li><a href="#" data-path="#/dashboard">Dashboard</a></li>
+              <!-- <li class="mobile">
                 <span class="mobile-breadcrumbs">
                   <select id="mobile-breadcrumbs-select">
                     <option value="#dashboard">...</option>
@@ -33,10 +33,7 @@
                     <option value="#settings1">Settings 1</option>
                   </select>
                 </span>
-              </li>
-              <li><a href="#network1">Network 1</a></li>
-              <li class="current"><a href="#kiosk1">Kiosk 1</a></li>
-              <li class="active"><a href="#settings">Settings</a></li>
+              </li> -->
             </ul>
           </nav>
           <div class="header--profile">
@@ -68,8 +65,22 @@
     </header>
     <section id="dashboard" class="section section--body">
       <h2>Dashboard</h2>
-      <button data-target="network1">Network 1</button>
-      <button data-target="network2">Network 2</button>
+      <button data-path="/dashboard/network1">Network 1</button>
+      <button data-path="/dashboard/network2">Network 2</button>
+    </section>
+
+    <section id="network1" class="section section--body">
+      <h2>Network 1</h2>
+      <button data-path="/dashboard/network1/kiosk1">Kiosk 1</button>
+      <button data-path="/dashboard/network1/kiosk2">Kiosk 2</button>
+      <button data-path="/dashboard/network1/settings">Network settings</button>
+    </section>
+
+    <section id="settings1" class="section section--body">
+      <h2>Setting 1</h2>
+      <button data-path="/dashboard/network1/settings2">Setting 2</button>
+      <button data-path="/dashboard/network1/settings3">Setting 3</button>
+      <button data-path="/dashboard/network1/settings4">Setting 4</button>
     </section>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
