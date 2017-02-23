@@ -1,6 +1,7 @@
 var gulp        = require('gulp');
 var browserSync = require('browser-sync').create();
 var sass        = require('gulp-sass');
+var concat      = require('gulp-concat'); 
 
 // Static Server + watching scss/html files
 gulp.task('serve', ['sass'], function() {
@@ -10,6 +11,7 @@ gulp.task('serve', ['sass'], function() {
     });
 
     gulp.watch("app/sass/**/*.scss", ['sass']);
+    gulp.watch("app/js/modules/*.js", ['js']);
     gulp.watch("app/*.html").on('change', browserSync.reload);
 });
 
@@ -20,6 +22,13 @@ gulp.task('sass', function() {
           includePaths: require('node-normalize-scss').includePaths
         }))
         .pipe(gulp.dest("app/css"))
+        .pipe(browserSync.stream());
+});
+
+gulp.task('js', function() {
+    return gulp.src("app/js/modules/*.js")
+        .pipe(concat('app.js'))
+        .pipe(gulp.dest("app/js"))
         .pipe(browserSync.stream());
 });
 

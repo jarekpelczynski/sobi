@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title></title>
     <link rel="stylesheet" href="./css/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
   <body>
     <header class="section section--header">
@@ -24,6 +25,15 @@
               <li><a href="">Dashboard</a></li>
               <li><a href="">Network 1</a></li>
               <li class="current"><a href="">Kiosk 1</a></li>
+              <li class="mobile">
+                <a href="#" class="show_mobile_options">...</a>
+                <select id="mobile-breadcrumbs" class="hidden">
+                  <option>Dashboard</option>
+                  <option>Network 1</option>
+                  <option>Kiosk 1</option>
+                  <option>Settings 1</option>
+                </select>
+              </li>
               <li class="active"><a href="">Settings</a></li>
             </ul>
           </nav>
@@ -57,5 +67,7 @@
     <section class="section section--body">
 
     </section>
+
+    <script type="text/javascript" src="./js/app.js"></script>
   </body>
 </html>
