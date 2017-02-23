@@ -1,3 +1,14 @@
+%arrow_right {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  content: "";
+  transform: translateY(-50%);
+  border-style: solid;
+  border-width: 5px 0 5px 6px;
+  border-color: transparent transparent transparent #565656;
+}
+
 .ui-breadcrumbs {
   margin-left: $canvas_padding;
 
@@ -58,14 +69,7 @@
     line-height: 64px;
 
     &:after {
-      position: absolute;
-      top: 50%;
-      right: 10px;
-      content: "";
-      transform: translateY(-50%);
-      border-style: solid;
-      border-width: 5px 0 5px 6px;
-      border-color: transparent transparent transparent #565656;
+      @extend %arrow_right;
     }
   }
 
@@ -108,5 +112,30 @@
   a {
     padding: 7px 0;
     color: #fff;
+  }
+}
+
+.mobile-breadcrumbs {
+  position: relative;
+  display: block;
+  padding-right: 40px;
+
+  &:after {
+    @extend %arrow_right;
+  }
+
+  select {
+    position: relative;
+    width: 20px;
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    text-align: center;
+    text-align-last: center;
+
+    option {
+      text-align: left;
+    }
   }
 }
