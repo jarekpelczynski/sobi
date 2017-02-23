@@ -63,24 +63,30 @@
       </div>
 
     </header>
-    <section id="dashboard" class="section section--body">
+    <section data-target="dashboard" class="section section--body hidden">
       <h2>Dashboard</h2>
       <button data-path="/dashboard/network1">Network 1</button>
       <button data-path="/dashboard/network2">Network 2</button>
     </section>
 
-    <section id="network1" class="section section--body">
+    <section data-target="dashboard_network1" class="section section--body hidden">
       <h2>Network 1</h2>
       <button data-path="/dashboard/network1/kiosk1">Kiosk 1</button>
       <button data-path="/dashboard/network1/kiosk2">Kiosk 2</button>
       <button data-path="/dashboard/network1/settings">Network settings</button>
     </section>
 
-    <section id="settings1" class="section section--body">
+    <section data-target="dashboard_network2" class="section section--body hidden">
       <h2>Setting 1</h2>
       <button data-path="/dashboard/network1/settings2">Setting 2</button>
       <button data-path="/dashboard/network1/settings3">Setting 3</button>
       <button data-path="/dashboard/network1/settings4">Setting 4</button>
+    </section>
+
+    <section data-target="dashboard_network1_kiosk1" class="section section--body hidden">
+      <h2>Kiosk 1</h2>
+      <button data-path="/dashboard/network1/kiosk1/settings1">Setting 1</button>
+      <button data-path="/dashboard/network1/kiosk1/settings2">Setting 2</button>
     </section>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>

@@ -11,34 +11,41 @@
   };
 
   Breadcrumbs.prototype.init = function() {
+    // Get hash or set defualt
     that.hash = window.location.hash || '#'
+
+    // Get and cache the containers with our breadcrumbs list
     that.breadcrumbsContainers = {
       primary:    $('#primary-breadcrumbs').find('ul'),
       secondary:  $('#primary-breadcrumbs').find('ul')
     }
 
-    //Breadcrumbs.prototype.showView();
+    // If no hash or it's a dashboard path at first time
+    if (that.hash === '#' || that.hash === '' || that.hash === '#/dashboard') {
+      that.updateView('/dashboard');
+    }
+    // If it's a hash with some path
+    else {
+      // Update view to current
+      that.updateView(that.hash.substring(1));
 
-    // We will detect hash changing
-    $(window).on('hashchange', function(e) {
-      e.preventDefault();
-
-      that.hash = window.location.hash;
-      // Breadcrumbs.prototype.showView();
-    });
+      // Update breadcrumbs structure
+      that.updateBreadcrumbs();
+    }
 
     that.initButtons();
-
-
   };
 
-  Breadcrumbs.prototype.showView = function() {
-
+  Breadcrumbs.prototype.showView = function(view) {
     // Hide every visible view...
-    // $('.section--body:visible').addClass('hidden');
+    $('.section--body:visible').addClass('hidden');
 
-    // ... and let's unhide selected
-    // $(that.hash).removeClass('hidden');
+    // ... and let's unhide selected (our target view)
+    $('.section--body[data-target="' + that.path2id() + '"]').removeClass('hidden');
+  };
+
+  Breadcrumbs.prototype.path2id = function() {
+    return that.breadcrumbsPath.join('_');
   };
 
   Breadcrumbs.prototype.initButtons = function() {
@@ -49,20 +56,25 @@
       $this = $(this);
       path  = $this.data('path');
 
-      console.log(path)
-
-      // Get path from url
-      that.breadcrumbsPath = path.split('/').slice(1, path.length);
-
-      // Get current view from last element in path
-      that.currentView     = that.breadcrumbsPath[that.breadcrumbsPath.length - 1];
+      // Update view to current
+      that.updateView(path);
 
       // Update breadcrumbs structure
       that.updateBreadcrumbs();
-
-      // Update hash
-      window.location.hash = '#' + path;
     });
+  };
+
+  Breadcrumbs.prototype.updateView = function(path) {
+    // Get path from button data-path
+    that.breadcrumbsPath = path.split('/').slice(1, path.length);
+
+    // Get current view from last element in path
+    that.currentView = that.breadcrumbsPath[that.breadcrumbsPath.length - 1];
+
+    // Update hash
+    window.location.hash = '#' + path;
+
+    that.showView(that.currentView);
   };
 
   Breadcrumbs.prototype.updateBreadcrumbs = function() {
